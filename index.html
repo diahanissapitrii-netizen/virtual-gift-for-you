@@ -201,7 +201,7 @@
             100% { left: 120%; }  
         }  
 
-        /* Music active */  
+        /* Music active - DIKEMBALIKAN */  
         .music-active {  
             animation: pulse 1.3s infinite;  
             box-shadow: 0 0 18px rgba(255, 215, 0, 0.9) !important;  
@@ -211,12 +211,12 @@
             50% { transform: scale(1.06); }  
             100% { transform: scale(1); }  
         }  
-        .music-icon {  
+        .music-icon { /* DIKEMBALIKAN */
             margin-left: 8px;  
             display: inline-block;  
             animation: sound 0.7s infinite;  
         }  
-        @keyframes sound {  
+        @keyframes sound { /* DIKEMBALIKAN */
             0% { transform: translateY(0); }  
             50% { transform: translateY(-3px); }  
             100% { transform: translateY(0); }  
@@ -235,8 +235,9 @@
     </button>  
   
     <audio id="music-player" loop>  
-        <source src="YOUR-MUSIC-LINK.mp3" type="audio/mpeg">  
-    </audio>  
+    <source src="https://drive.google.com/uc?export=download&id=114y48OI3CYuEM2xUbUwaXXji-LaUD_Xv" type="audio/mpeg"> 
+</audio>
+
   
     <div class="video-box">  
         <iframe src="https://drive.google.com/file/d/1-f0XWCxTDvLRjiWT_mUzEUAbx61v_I3v/preview" width="100%" height="100%"></iframe>  
@@ -301,7 +302,7 @@ function showContent(id) {
     document.getElementById(id + '-content').style.display = 'block';  
 }  
   
-/* MUSIC CONTROL */  
+/* MUSIC CONTROL - DIKEMBALIKAN */  
 let musicPlaying = false;  
 function toggleMusic() {  
     const player = document.getElementById("music-player");  
@@ -357,4 +358,5 @@ setInterval(() => {
 </script>  
   
 </body>  
-</html>
+            </html>
+    
