@@ -1,0 +1,360 @@
+<!DOCTYPE html>  
+<html lang="id">  
+<head>  
+    <meta charset="UTF-8" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <title>Virtual Gift for My Love</title>  
+  
+    <style>  
+        body {  
+            font-family: 'Arial', sans-serif;  
+            background-color: #0c0c0c;  
+            color: #fff;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            min-height: 100vh;  
+            margin: 0;  
+            padding: 20px 0;  
+        }  
+  
+        .container {  
+            width: 90%;  
+            max-width: 450px;  
+            background: #111;  
+            border-radius: 20px;  
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);  
+            padding: 30px;  
+            text-align: center;  
+            border: 1px solid rgba(255, 215, 0, 0.4);  
+        }  
+
+        /* ✨ Glow Pulse Slow (Animasi 2) */  
+        .glow-soft {  
+            animation: softGlow 4s ease-in-out infinite;  
+        }  
+        @keyframes softGlow {  
+            0% { box-shadow: 0 0 10px rgba(255,215,0,0.3); }  
+            50% { box-shadow: 0 0 22px rgba(255,215,0,0.75); }  
+            100% { box-shadow: 0 0 10px rgba(255,215,0,0.3); }  
+        }  
+  
+        .header-pink {  
+            color: #ffd700;  
+            font-size: 2em;  
+            margin-bottom: 10px;  
+            font-weight: bold;  
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);  
+        }  
+  
+        .subheader {  
+            color: #fff2b3;  
+            font-size: 1.1em;  
+            margin-bottom: 20px;  
+        }  
+  
+        .video-box {  
+            background-color: #1a1a1a;  
+            border: 1px solid rgba(255, 215, 0, 0.3);  
+            border-radius: 10px;  
+            margin-bottom: 20px;  
+            overflow: hidden;  
+            height: 250px;  
+        }  
+  
+        .nav-buttons {  
+            display: flex;  
+            justify-content: space-around;  
+            margin-bottom: 30px;  
+        }  
+  
+        .nav-button {  
+            background: linear-gradient(135deg, #8a6f00, #ffd700);  
+            color: #000;  
+            border: none;  
+            padding: 10px 15px;  
+            border-radius: 25px;  
+            cursor: pointer;  
+            font-weight: bold;  
+            transition: 0.3s;  
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);  
+            position: relative;  
+            overflow: hidden;  
+        }  
+  
+        .nav-button:hover {  
+            transform: scale(1.05);  
+            box-shadow: 0 0 16px rgba(255, 215, 0, 0.7);  
+        }  
+  
+        .content-section {  
+            padding: 20px;  
+            background-color: #121212;  
+            border-radius: 15px;  
+            border: 1px solid rgba(255, 215, 0, 0.3);  
+            margin-top: 20px;  
+            text-align: left;  
+            color: #fff;  
+            display: none;  
+        }  
+  
+        .content-section h3 {  
+            color: #ffd700;  
+            margin-top: 0;  
+            border-bottom: 2px solid #8a6f00;  
+            padding-bottom: 5px;  
+        }  
+  
+        .postcard-image {  
+            width: 100%;  
+            height: 30px;  
+            background: linear-gradient(90deg, #8a6f00, #ffd700);  
+            border-radius: 10px;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            margin-bottom: 20px;  
+        }  
+        .postcard-image span {  
+            color: #000;  
+            font-weight: bold;  
+        }  
+  
+        /* Floating Effects */  
+        .floating-effect { pointer-events:none; position:fixed; z-index:9; }  
+        .heart {  
+            position: fixed;  
+            bottom: -30px;  
+            color: #ffd700;  
+            font-size: 18px;  
+            opacity: 0.9;  
+            animation: rise 5s linear forwards;  
+            text-shadow: 0 0 8px rgba(255,215,0,0.7);  
+        }  
+        @keyframes rise {  
+            0% { transform: translateY(0) scale(0.9); opacity: 0.9; }  
+            100% { transform: translateY(-120vh) scale(1.4); opacity: 0; }  
+        }  
+  
+        .sparkle {  
+            width: 6px;  
+            height: 6px;  
+            background: radial-gradient(circle, #fff, #ffd700);  
+            border-radius: 50%;  
+            opacity: 0;  
+            animation: sparkle 1.5s ease-in-out forwards;  
+            filter: drop-shadow(0 0 6px rgba(255,215,0,0.8));  
+        }  
+        @keyframes sparkle {  
+            0% { transform: scale(0.6); opacity: 0; }  
+            40% { transform: scale(1.2); opacity: 1; }  
+            100% { transform: scale(0.4); opacity: 0; }  
+        }  
+
+        /* ✨ Falling Light Particles (Animasi 4) */  
+        .light-particle {  
+            position: fixed;  
+            top: -20px;  
+            width: 8px;  
+            height: 8px;  
+            background: radial-gradient(circle, #fff, #ffd700);  
+            border-radius: 50%;  
+            opacity: 0.7;  
+            filter: drop-shadow(0 0 6px #ffd700);  
+            animation: fallLight 4.5s linear forwards;  
+        }  
+        @keyframes fallLight {  
+            0% { transform: translateY(0) scale(0.6); }  
+            100% { transform: translateY(105vh) scale(1.4); opacity: 0; }  
+        }  
+
+        /* ✨ Typing Animation (Animasi 6) */  
+        .typing {  
+            overflow: hidden;  
+            white-space: pre-wrap;  
+            border-right: 2px solid #ffd700;  
+            animation: typing 4.5s steps(60, end), blink 0.7s step-end infinite;  
+        }  
+        @keyframes typing {  
+            from { width: 0; }  
+            to { width: 100%; }  
+        }  
+        @keyframes blink {  
+            50% { border-color: transparent; }  
+        }  
+
+        /* ✨ Shine Sweep (Animasi 10) */  
+        .shine::after {  
+            content: "";  
+            position: absolute;  
+            top: 0;  
+            left: -60%;  
+            width: 40%;  
+            height: 100%;  
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);  
+            transform: skewX(-25deg);  
+            animation: sweep 3s infinite;  
+        }  
+        @keyframes sweep {  
+            0% { left: -60%; }  
+            50% { left: 120%; }  
+            100% { left: 120%; }  
+        }  
+
+        /* Music active */  
+        .music-active {  
+            animation: pulse 1.3s infinite;  
+            box-shadow: 0 0 18px rgba(255, 215, 0, 0.9) !important;  
+        }  
+        @keyframes pulse {  
+            0% { transform: scale(1); }  
+            50% { transform: scale(1.06); }  
+            100% { transform: scale(1); }  
+        }  
+        .music-icon {  
+            margin-left: 8px;  
+            display: inline-block;  
+            animation: sound 0.7s infinite;  
+        }  
+        @keyframes sound {  
+            0% { transform: translateY(0); }  
+            50% { transform: translateY(-3px); }  
+            100% { transform: translateY(0); }  
+        }  
+    </style>  
+</head>  
+  
+<body>  
+<div class="container glow-soft" id="main-content">  
+    <div class="header-pink">HAPPY BIRTHDAY!</div>  
+    <div class="subheader">Hi, Abang Sayang!</div>  
+  
+    <button class="nav-button shine" id="music-button" onclick="toggleMusic()" style="width:100%; margin-bottom:20px;">  
+        <span id="music-text">Play Music</span>  
+        <span id="music-icon"></span>  
+    </button>  
+  
+    <audio id="music-player" loop>  
+        <source src="YOUR-MUSIC-LINK.mp3" type="audio/mpeg">  
+    </audio>  
+  
+    <div class="video-box">  
+        <iframe src="https://drive.google.com/file/d/1-f0XWCxTDvLRjiWT_mUzEUAbx61v_I3v/preview" width="100%" height="100%"></iframe>  
+    </div>  
+  
+    <div class="nav-buttons">  
+        <button class="nav-button shine" onclick="showContent('profile')">Our Story</button>  
+        <button class="nav-button shine" onclick="showContent('twenty')">Captured Moments</button>  
+        <button class="nav-button shine" onclick="showContent('readMe')">A Letter for You</button>  
+    </div>  
+  
+    <div class="content-section" id="profile-content">  
+        <h3>The First Spark</h3>  
+        <p style="white-space:pre-wrap; line-height:1.6;">  
+Sejak pertama kali aku kenal kamu, ada sesuatu yang langsung nyangkut di hati.
+Entah kenapa, sikapmu beda sekali dari orang-orang yang pernah aku temui sebelumnya.
+Rasanya asing, tapi nyaman.
+Dan dari situ, tanpa sadar aku jatuh cinta pada cara kamu berjalan di hidupku, pelan-pelan tapi pasti.
+
+Sekarang sudah 586 hari sejak momen pertama itu.
+Kamu masih ingat engga?
+Buatku, itu hari yang rasanya hangat banget—hari yang bikin aku pulang dengan senyum yang gak mau hilang.
+
+Aku gak pernah nyesel kenal kamu.
+Kalau pun ada rasa takut, itu cuma karena aku engga mau kehilangan kamu.
+Yang jelas, perasaanku buat kamu itu nyata, dan dalam.
+        </p>  
+    </div>  
+  
+    <div class="content-section" id="twenty-content">  
+        <h3>Video of the Two of Us</h3>  
+        <div class="video-box" style="height:280px;">  
+            <iframe src="https://drive.google.com/file/d/1-zrx-RCEMTlbFrBftFoqGk1hSeovTQyZ/preview" width="100%" height="100%"></iframe>  
+        </div>  
+    </div>  
+  
+    <div class="content-section" id="readMe-content">  
+        <h3>Happy Birthday!</h3>  
+        <div class="postcard-image"><span>For You, with Love</span></div>  
+        <p class="typing" style="white-space:pre-wrap; line-height:1.6;">Selamat ulang tahun, sayang.
+Semoga kamu selalu jadi dirimu yang sekarang—yang aku sayangi apa adanya.
+
+Kalau kamu capek atau dunia terasa berat, kamu bisa cerita ke aku kapan saja.
+Aku mungkin tidak bisa menyelesaikan semuanya, tapi aku mau tetap ada.
+
+Dan… terima kasih.
+Terima kasih karena kamu hadir di hidupku.
+Terima kasih sudah bertahan sejauh ini.
+Terima kasih untuk hal-hal kecil yang kamu anggap biasa, tapi berarti banyak untukku.
+
+Tetaplah ada di dunia ini, ya.
+Aku percaya kamu kuat.
+Aku bangga sama kamu.
+
+Peluk erat dariku—kapan pun kamu butuh.</p>  
+    </div>  
+</div>  
+  
+<script>  
+function showContent(id) {  
+    document.querySelectorAll('.content-section').forEach(sec => sec.style.display = 'none');  
+    document.getElementById(id + '-content').style.display = 'block';  
+}  
+  
+/* MUSIC CONTROL */  
+let musicPlaying = false;  
+function toggleMusic() {  
+    const player = document.getElementById("music-player");  
+    const text = document.getElementById("music-text");  
+    const btn = document.getElementById("music-button");  
+    const icon = document.getElementById("music-icon");  
+  
+    if (!musicPlaying) {  
+        player.play();  
+        text.innerText = "Pause Music";  
+        btn.classList.add("music-active");  
+        icon.innerHTML = "🎶";  
+        icon.classList.add("music-icon");  
+        musicPlaying = true;  
+    } else {  
+        player.pause();  
+        text.innerText = "Play Music";  
+        btn.classList.remove("music-active");  
+        icon.innerHTML = "";  
+        musicPlaying = false;  
+    }  
+}  
+
+/* Floating Hearts */  
+setInterval(() => {  
+    const h = document.createElement('div');  
+    h.className = 'heart floating-effect';  
+    h.textContent = '❤';  
+    h.style.left = Math.random()*90 + 'vw';  
+    h.style.fontSize = (14 + Math.random()*16) + 'px';  
+    document.body.appendChild(h);  
+    setTimeout(() => h.remove(), 5200);  
+}, 900);  
+
+/* Sparkles */  
+setInterval(() => {  
+    const s = document.createElement('div');  
+    s.className = 'sparkle floating-effect';  
+    s.style.left = Math.random()*100 + 'vw';  
+    s.style.top = Math.random()*100 + 'vh';  
+    document.body.appendChild(s);  
+    setTimeout(() => s.remove(), 1600);  
+}, 600);  
+
+/* Falling Light Particles */  
+setInterval(() => {  
+    const l = document.createElement('div');  
+    l.className = 'light-particle floating-effect';  
+    l.style.left = Math.random()*100 + 'vw';  
+    document.body.appendChild(l);  
+    setTimeout(() => l.remove(), 5000);  
+}, 800);
+</script>  
+  
+</body>  
+</html>
