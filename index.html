@@ -168,21 +168,6 @@
             100% { transform: translateY(105vh) scale(1.4); opacity: 0; }  
         }  
 
-        /* ✨ Typing Animation (Animasi 6) */  
-        .typing {  
-            overflow: hidden;  
-            white-space: pre-wrap;  
-            border-right: 2px solid #ffd700;  
-            animation: typing 4.5s steps(60, end), blink 0.7s step-end infinite;  
-        }  
-        @keyframes typing {  
-            from { width: 0; }  
-            to { width: 100%; }  
-        }  
-        @keyframes blink {  
-            50% { border-color: transparent; }  
-        }  
-
         /* ✨ Shine Sweep (Animasi 10) */  
         .shine::after {  
             content: "";  
@@ -200,27 +185,6 @@
             50% { left: 120%; }  
             100% { left: 120%; }  
         }  
-
-        /* Music active - DIKEMBALIKAN */  
-        .music-active {  
-            animation: pulse 1.3s infinite;  
-            box-shadow: 0 0 18px rgba(255, 215, 0, 0.9) !important;  
-        }  
-        @keyframes pulse {  
-            0% { transform: scale(1); }  
-            50% { transform: scale(1.06); }  
-            100% { transform: scale(1); }  
-        }  
-        .music-icon { /* DIKEMBALIKAN */
-            margin-left: 8px;  
-            display: inline-block;  
-            animation: sound 0.7s infinite;  
-        }  
-        @keyframes sound { /* DIKEMBALIKAN */
-            0% { transform: translateY(0); }  
-            50% { transform: translateY(-3px); }  
-            100% { transform: translateY(0); }  
-        }  
     </style>  
 </head>  
   
@@ -228,16 +192,6 @@
 <div class="container glow-soft" id="main-content">  
     <div class="header-pink">HAPPY BIRTHDAY!</div>  
     <div class="subheader">Hi, Abang Sayang!</div>  
-  
-    <button class="nav-button shine" id="music-button" onclick="toggleMusic()" style="width:100%; margin-bottom:20px;">  
-        <span id="music-text">Play Music</span>  
-        <span id="music-icon"></span>  
-    </button>  
-  
-    <audio id="music-player" loop>  
-    <source src="https://drive.google.com/uc?export=download&id=114y48OI3CYuEM2xUbUwaXXji-LaUD_Xv" type="audio/mpeg"> 
-</audio>
-
   
     <div class="video-box">  
         <iframe src="https://drive.google.com/file/d/1-f0XWCxTDvLRjiWT_mUzEUAbx61v_I3v/preview" width="100%" height="100%"></iframe>  
@@ -277,7 +231,7 @@ Yang jelas, perasaanku buat kamu itu nyata, dan dalam.
     <div class="content-section" id="readMe-content">  
         <h3>Happy Birthday!</h3>  
         <div class="postcard-image"><span>For You, with Love</span></div>  
-        <p class="typing" style="white-space:pre-wrap; line-height:1.6;">Selamat ulang tahun, sayang.
+        <p style="white-space:pre-wrap; line-height:1.6;">Selamat ulang tahun, sayang.
 Semoga kamu selalu jadi dirimu yang sekarang—yang aku sayangi apa adanya.
 
 Kalau kamu capek atau dunia terasa berat, kamu bisa cerita ke aku kapan saja.
@@ -302,30 +256,6 @@ function showContent(id) {
     document.getElementById(id + '-content').style.display = 'block';  
 }  
   
-/* MUSIC CONTROL - DIKEMBALIKAN */  
-let musicPlaying = false;  
-function toggleMusic() {  
-    const player = document.getElementById("music-player");  
-    const text = document.getElementById("music-text");  
-    const btn = document.getElementById("music-button");  
-    const icon = document.getElementById("music-icon");  
-  
-    if (!musicPlaying) {  
-        player.play();  
-        text.innerText = "Pause Music";  
-        btn.classList.add("music-active");  
-        icon.innerHTML = "🎶";  
-        icon.classList.add("music-icon");  
-        musicPlaying = true;  
-    } else {  
-        player.pause();  
-        text.innerText = "Play Music";  
-        btn.classList.remove("music-active");  
-        icon.innerHTML = "";  
-        musicPlaying = false;  
-    }  
-}  
-
 /* Floating Hearts */  
 setInterval(() => {  
     const h = document.createElement('div');  
@@ -358,5 +288,5 @@ setInterval(() => {
 </script>  
   
 </body>  
-            </html>
+    </html>
     
